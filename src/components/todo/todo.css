@@ -1,0 +1,109 @@
+.main-div {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(116, 177, 177);
+}
+
+.child-div {
+  background-color: #fff;
+  margin: 25px;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  width: 400px;
+}
+
+figure {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+figcaption {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #1212129a;
+  color: rgb(195, 27, 195);
+}
+
+.addItems {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.addItems input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 1rem;
+}
+
+.addItems .add-btn {
+  margin-left: 10px;
+  cursor: pointer;
+  background-color: rgb(27, 90, 27);
+  color: whitesmoke;
+  border-radius: 5px;
+  border: none;
+  font-size: 30px;
+}
+
+.showItems {
+  margin-top: 20px;
+}
+
+.eachItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 10px;
+  background: black;
+  border: 2px solid black;
+  color: white;
+  border-radius: 5px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.eachItem h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.eachItem .delete-btn {
+  cursor: pointer;
+  background-color: red;
+  color: whitesmoke;
+  border-radius: 5px;
+  border: none;
+  font-size: 22px;
+}
+
+.complete-all-btn {
+  cursor: pointer;
+  background-color: yellowgreen;
+  border: 1px dotted yellow;
+  color: black;
+  border-radius: 7px;
+  font-size: 17px;
+}
+.cost-input {
+  padding: 3px;
+  border: 1px solid rgb(225, 124, 17);
+  border-radius: 3px;
+  font-size: 0.9rem;
+}
+
+.submit-cost{
+  margin: 10px;
+  cursor: pointer;
+  background-color: rgb(35, 87, 220);
+  border: 1px dotted gray;
+  color: rgb(231, 224, 224);
+  border-radius: 5px;
+  font-size: 15px;
+}

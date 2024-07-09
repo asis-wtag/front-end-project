@@ -1,0 +1,21 @@
+.eachItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    background: black;
+    border: 2px solid black;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .eachItem .delete-btn {
+    cursor: pointer;
+    background-color: red;
+    color: whitesmoke;
+    border-radius: 5px;
+    border: none;
+    font-size: 22px;
+  }
