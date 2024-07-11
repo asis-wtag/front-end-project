@@ -1,6 +1,7 @@
 import React from 'react';
 import './todoCost.css';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 const TodoCost = () => {
   const list = useSelector((state) => state.todoReducers.list);
@@ -27,6 +28,13 @@ const TodoCost = () => {
           ))}
         </tbody>
       </table>
+      <div className='footer-div'>
+      <footer>
+            <blockquote>
+              <Link to='/'>Go to task page</Link>
+            </blockquote>
+          </footer>
+      </div>
     </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { completeTodo, deleteTodo } from "../../actions/todo/actions";
+import toast from "react-hot-toast";
 import "./todoList.css";
 
 const TodoList = ({ element }) => {
@@ -16,10 +17,20 @@ const TodoList = ({ element }) => {
     setNumberValue(e.target.value);
   };
 
-  const handleSubmit = (todoId) => {
+  const handleCostSubmit = (todoId) => {
+    if(numberValue.trim()==""){
+      toast.error("Todo cost can't be empty !")
+      return;
+    }
     dispatch(completeTodo(todoId, Number(numberValue)));
     setIsChecked(!isChecked);
   };
+
+  const handleDeleteTodo = (id) => {
+    if(window.confirm('Are sure you want to delete this todo?')){
+    dispatch(deleteTodo(id))
+    }
+  }
 
   let content;
 
@@ -39,7 +50,7 @@ const TodoList = ({ element }) => {
           onChange={handleNumberChange}
           placeholder="Enter the cost ..."
         />
-        <button onClick={() => handleSubmit(element.id)}>Submit</button>
+        <button onClick={() => handleCostSubmit(element.id)}>Submit</button>
       </div>
     );
   } else {
@@ -63,7 +74,7 @@ const TodoList = ({ element }) => {
       <button
         className="delete-btn"
         title="Delete Item"
-        onClick={() => dispatch(deleteTodo(element.id))}
+        onClick={() =>handleDeleteTodo(element.id) }
       >
         -
       </button>

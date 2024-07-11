@@ -4,6 +4,7 @@ import { addTodo, completeAllTodo } from "../../actions/todo/actions";
 import { useSelector, useDispatch } from "react-redux";
 import TodoList from "./TodoList";
 import { Link } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
 
 const Todo = () => {
   const [inputData, setInputData] = useState("");
@@ -11,7 +12,8 @@ const Todo = () => {
   const [numberValue, setNumberValue] = useState("");
   const list = useSelector((state) => state.todoReducers.list);
   const dispatch = useDispatch();
-  const handleClick = () => {
+
+  const handleCompleteAllClick = () => {
     setIsChecked(!isChecked);
   };
 
@@ -19,7 +21,20 @@ const Todo = () => {
     setNumberValue(e.target.value);
   };
 
-  const handleSubmit = () => {
+  const handleAddTodo = () => {
+    if(inputData.trim()==""){
+      toast.error("Todo name can't be empty !")
+      return;
+    }
+    dispatch(addTodo(inputData.trim()));
+    setInputData("");
+  }
+
+  const handleCompleteAllCostSubmit = () => {
+    if(numberValue.trim()==""){
+      toast.error("Todo cost can't be empty !")
+      return;
+    }
     dispatch(completeAllTodo(Number(numberValue)));
     setIsChecked(!isChecked);
   };
@@ -27,6 +42,7 @@ const Todo = () => {
   return (
     <Fragment>
       <div className="main-div">
+        <Toaster/>
         <div className="child-div">
           <figure>
             <figcaption>Add Your List Here</figcaption>
@@ -41,10 +57,7 @@ const Todo = () => {
             />
             <button
               className="add-btn"
-              onClick={() => {
-                dispatch(addTodo(inputData));
-                setInputData("");
-              }}
+              onClick={handleAddTodo }
             >
               +
             </button>
@@ -57,7 +70,7 @@ const Todo = () => {
               ))}
           </div>
           <div className="showItems">
-            <button className="complete-all-btn" onClick={handleClick}>
+            <button className="complete-all-btn" onClick={handleCompleteAllClick}>
               Complete All
             </button>
             {isChecked ? (
@@ -69,7 +82,7 @@ const Todo = () => {
                   onChange={handleNumberChange}
                   placeholder="Enter the cost ..."
                 />
-                <button className="submit-cost" onClick={ handleSubmit}>Submit</button>
+                <button className="submit-cost" onClick={handleCompleteAllCostSubmit}>Submit</button>
               </div>
             ) : null}
           </div>
